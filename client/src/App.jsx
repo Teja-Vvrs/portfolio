@@ -4,7 +4,7 @@ const App = () => {
   return (
     <div className="flex justify-center items-center h-screen bg-gray-200">
       <h1 class="text-3xl font-bold underline bg-blue-200">
-              Hello world!
+              Hello world! This is my protfolio website.
       </h1>
     </div>
   )
