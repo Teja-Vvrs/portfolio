@@ -8,7 +8,7 @@ const App = () => {
       </h1>
       <h1 className="text-3xl font-bold underline bg-amber-200">
         
-        VVRS TEJA Protfolio
+        VVRS TEJA Protfolio-1
 
       </h1>
 
