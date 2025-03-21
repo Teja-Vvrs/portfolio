@@ -295,45 +295,57 @@ function App() {
         </Section>
 
         <Section id="skills" title="Skills">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {Object.entries(skills).map(([category, items], categoryIndex) => (
-              <motion.div
-                key={category}
-                initial="hidden"
-                whileInView="visible"
-                whileHover="hover"
-                variants={skillVariants}
-                className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg transform-gpu"
-              >
-                <h3 className="text-xl font-semibold mb-6 capitalize">{category}</h3>
-                <div className="space-y-6">
-                  {items.map((skill, index) => (
-                    <motion.div
-                      key={skill}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      className="relative"
-                    >
-                      <div className="flex justify-between mb-2">
-                        <span className="text-sm font-medium">{skill}</span>
-                        <span className="text-sm text-blue-500">{90 - (index * 5)}%</span>
-                      </div>
-                      <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${90 - (index * 5)}%` }}
-                          transition={{ duration: 1.5, ease: "easeOut" }}
-                          className="h-full bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"
-                        />
-                      </div>
-                    </motion.div>
-                  ))}
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    {Object.entries(skills).map(([category, items]) => (
+      <motion.div
+        key={category}
+        initial="hidden"
+        whileInView="visible"
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
+      >
+        <h3 className="text-xl font-semibold mb-4 text-blue-500 dark:text-blue-400 capitalize">
+          {category}
+        </h3>
+        <div className="space-y-4">
+          {items.map((skill, index) => (
+            <motion.div
+              key={skill}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="flex items-center space-x-4"
+            >
+              {/* Skill Icon */}
+              <div className="w-10 h-10 flex items-center justify-center bg-blue-100 dark:bg-blue-900 rounded-full">
+                <span className="text-blue-500 dark:text-blue-300 text-lg">
+                  {skill[0]} {/* Display the first letter of the skill as an icon */}
+                </span>
+              </div>
+              {/* Skill Name and Progress Bar */}
+              <div className="flex-1">
+                <p className="text-gray-800 dark:text-gray-200 font-medium">
+                  {skill}
+                </p>
+                <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${90 - index * 5}%` }}
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                    className="h-full bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"
+                  />
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </Section>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    ))}
+  </div>
+</Section>
 
         <Section id="achievements" title="Achievements">
           <motion.div
