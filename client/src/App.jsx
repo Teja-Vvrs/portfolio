@@ -95,7 +95,7 @@ function App() {
 
   // Sample achievements data
   const achievements = [
-    { platform: "LeetCode", achievement: "Solved 500+ problems", link: "https://leetcode.com/your-profile", rank: "Top 5% globally" },
+    { platform: "LeetCode", achievement: "Solved 200+ problems", link: "https://leetcode.com/your-profile", rank: "Top 25% globally" },
     { platform: "Codeforces", achievement: "Specialist Rating", link: "https://codeforces.com/profile/your-profile", rank: "1500+ rating" },
     { platform: "HackerRank", achievement: "5-star in Problem Solving", link: "https://www.hackerrank.com/your-profile", rank: "Gold Badge" }
   ];
