@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Menu, X } from 'lucide-react';
+import { Github, Linkedin, Mail, Menu, X, Award } from 'lucide-react';
 import { ThemeToggle } from './components/ThemeToggle';
 import { Section } from './components/Section';
 import { projects, skills } from './data';
-import RotatingText from './RotatingText'
+import RotatingText from './RotatingText';
 
 function App() {
   const [isDark, setIsDark] = useState(() => {
@@ -67,17 +67,11 @@ function App() {
 
   const navVariants = {
     hidden: { y: -100 },
-    visible: {
-      y: 0,
-      transition: { type: "spring", stiffness: 100, damping: 20 }
-    }
+    visible: { y: 0, transition: { type: "spring", stiffness: 100, damping: 20 } }
   };
 
   const linkVariants = {
-    hover: {
-      scale: 1.1,
-      transition: { type: "spring", stiffness: 400, damping: 10 }
-    }
+    hover: { scale: 1.1, transition: { type: "spring", stiffness: 400, damping: 10 } }
   };
 
   const skillVariants = {
@@ -91,7 +85,34 @@ function App() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
   };
 
-  const navItems = ['about', 'skills', 'projects', 'contact'];
+  const achievementVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, staggerChildren: 0.2 } }
+  };
+
+  const navItems = ['about', 'skills', 'achievements', 'projects', 'contact'];
+
+  // Sample achievements data (replace with your actual profiles/achievements)
+  const achievements = [
+    {
+      platform: "LeetCode",
+      achievement: "Solved 500+ problems",
+      link: "https://leetcode.com/your-profile",
+      rank: "Top 5% globally"
+    },
+    {
+      platform: "Codeforces",
+      achievement: "Specialist Rating",
+      link: "https://codeforces.com/profile/your-profile",
+      rank: "1500+ rating"
+    },
+    {
+      platform: "HackerRank",
+      achievement: "5-star in Problem Solving",
+      link: "https://www.hackerrank.com/your-profile",
+      rank: "Gold Badge"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-200">
@@ -172,7 +193,7 @@ function App() {
         >
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }} // Fixed the typo here
+            animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
@@ -236,7 +257,6 @@ function App() {
             className="relative py-12"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              {/* Left Side: Text Content */}
               <div className="space-y-6">
                 <h3 className="text-3xl font-bold text-blue-500 dark:text-blue-400">
                   Crafting Digital Experiences
@@ -263,8 +283,6 @@ function App() {
                   Download Resume
                 </motion.div>
               </div>
-
-              {/* Right Side: Animated Graphic */}
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
@@ -296,7 +314,7 @@ function App() {
         </Section>
 
         <Section id="skills" title="Skills">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {Object.entries(skills).map(([category, items], categoryIndex) => (
               <motion.div
                 key={category}
@@ -304,41 +322,78 @@ function App() {
                 whileInView="visible"
                 whileHover="hover"
                 variants={skillVariants}
-                className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg transform-gpu"
+                className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-lg border border-gray-200 dark:border-gray-700 transform-gpu"
               >
-                <h3 className="text-xl font-semibold mb-6 capitalize">{category}</h3>
-                <div className="space-y-6">
+                <h3 className="text-xl font-semibold mb-4 text-blue-600 dark:text-blue-400 capitalize">
+                  {category}
+                </h3>
+                <div className="space-y-4">
                   {items.map((skill, index) => (
                     <motion.div
                       key={skill}
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
-                      className="relative"
                     >
-                      <div className="flex justify-between mb-2">
+                      <div className="flex justify-between mb-1">
                         <span className="text-sm font-medium">{skill}</span>
-                        <span className="text-sm text-blue-500">{90 - (index * 5)}%</span>
+                        <span className="text-sm text-blue-500 dark:text-blue-300">
+                          {90 - (index * 5)}%
+                        </span>
                       </div>
-                      <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                      <div className="h-2 bg-gray-100 dark:bg-gray-600 rounded-full overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}
                           whileInView={{ width: `${90 - (index * 5)}%` }}
-                          transition={{ duration: 1.5, ease: "easeOut" }}
-                          className="h-full bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"
+                          transition={{ duration: 1, ease: "easeOut" }}
+                          className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full"
                         />
                       </div>
-                      <motion.div
-                        className="absolute -right-2 top-1/2 w-4 h-4 bg-blue-500 rounded-full transform -translate-y-1/2"
-                        animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                      />
                     </motion.div>
                   ))}
                 </div>
               </motion.div>
             ))}
           </div>
+        </Section>
+
+        <Section id="achievements" title="Achievements">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            variants={achievementVariants}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {achievements.map((achievement) => (
+              <motion.div
+                key={achievement.platform}
+                variants={achievementVariants}
+                whileHover={{ scale: 1.03 }}
+                className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-lg border border-gray-200 dark:border-gray-700"
+              >
+                <div className="flex items-center space-x-3 mb-3">
+                  <Award className="w-6 h-6 text-blue-500 dark:text-blue-400" />
+                  <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+                    {achievement.platform}
+                  </h3>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 mb-2">
+                  {achievement.achievement}
+                </p>
+                <p className="text-sm text-blue-500 dark:text-blue-300 mb-3">
+                  {achievement.rank}
+                </p>
+                <a
+                  href={achievement.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                  View Profile →
+                </a>
+              </motion.div>
+            ))}
+          </motion.div>
         </Section>
 
         <Section id="projects" title="Featured Projects">
