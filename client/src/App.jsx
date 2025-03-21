@@ -6,6 +6,7 @@ import { Section } from './components/Section';
 import { projects, skills } from './data';
 import RotatingText from './RotatingText';
 
+
 function App() {
   const [isDark, setIsDark] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
