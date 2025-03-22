@@ -1,22 +1,22 @@
 export const projects = [
     {
-      title: "E-commerce Platform",
-      description: "A full-stack e-commerce platform built with React, Node.js, and MongoDB",
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=1600",
+      title: "Restaurant-Finder",
+      description: "Restaurant Finder is an app that helps users discover nearby restaurants based on name, cuisine and location",
+      image: "./src/assets/restaurant.png",
       technologies: ["React", "Node.js", "MongoDB", "Express"],
-      link: "#"
+      link: "https://restaurant-finder-indol.vercel.app/"
     },
     {
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates",
-      image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&q=80&w=1600",
-      technologies: ["React", "Firebase", "Tailwind CSS"],
-      link: "#"
+      title: "FarmDirect",
+      description: "FarmDirect is an online platform connecting farmers directly with consumers for fresh, farm-to-table produce.",
+      image: "./src/assets/Farm_direct.jpg",
+      technologies: ["React", "Node.js", "MongoDB", "Express"],
+      link: "https://farmdirect-beta.vercel.app/login"
     },
     {
-      title: "Social Media Dashboard",
+      title: "Animation UI",
       description: "Analytics dashboard for social media management",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600",
+      image: "",
       technologies: ["TypeScript", "Next.js", "GraphQL"],
       link: "#"
     }
