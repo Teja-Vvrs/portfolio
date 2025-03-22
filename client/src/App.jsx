@@ -10,6 +10,8 @@ import {
   FaGitAlt, FaDatabase, FaDocker 
 } from 'react-icons/fa';
 import { SiMongodb, SiExpress, SiTypescript, SiRedux } from 'react-icons/si';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [isDark, setIsDark] = useState(() => {
@@ -61,6 +63,19 @@ function App() {
     if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  const handleDownloadResume = () => {
+    toast.success("Resume downloaded successfully!", {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: isDark ? "dark" : "light",
+    });
+  };
+
   const navVariants = { hidden: { y: -100 }, visible: { y: 0, transition: { type: "spring", stiffness: 100, damping: 20 } } };
   const linkVariants = { hover: { scale: 1.1, transition: { type: "spring", stiffness: 400, damping: 10 } } };
   const skillVariants = { hidden: { scale: 0.8, opacity: 0 }, visible: { scale: 1, opacity: 1, transition: { duration: 0.5 } }, hover: { scale: 1.05, transition: { duration: 0.2 } } };
@@ -69,8 +84,8 @@ function App() {
 
   const navItems = ['about', 'skills', 'achievements', 'projects', 'contact'];
   const achievements = [
-    { platform: "LeetCode", achievement: "Solved 200+ problems",rank: "Top 25% globally" },
-    { platform: "Codeforces", achievement: "Newbie",  rank: "1000+ rating" },
+    { platform: "LeetCode", achievement: "Solved 200+ problems", rank: "Top 25% globally" },
+    { platform: "Codeforces", achievement: "Newbie", rank: "1000+ rating" },
     { platform: "Codechef", achievement: "3-Star Rating", rank: "1600+ rating" }
   ];
 
@@ -97,9 +112,11 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-200">
+      {/* Toast Container */}
+      <ToastContainer />
+
       {/* Navigation */}
       <motion.nav initial="hidden" animate="visible" variants={navVariants} className={`fixed w-full backdrop-blur-sm z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 dark:bg-gray-900/90 shadow-lg' : 'bg-white/50 dark:bg-gray-900/50'}`}>
-        {/* Nav content */}
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <motion.h1 initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }} className="text-2xl font-bold">VVRS TEJA</motion.h1>
           <div className="hidden md:flex items-center space-x-8">
@@ -147,16 +164,42 @@ function App() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div className="space-y-6">
                 <h3 className="text-3xl font-bold text-blue-500 dark:text-blue-400">Crafting Digital Experiences</h3>
-                <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">Hey! I'm VVRS Teja, a passionate <span className="font-semibold text-blue-600 dark:text-blue-300">MERN Stack Developer</span> and <span className="font-semibold text-blue-600 dark:text-blue-300">Competitive Programmer</span>. I thrive on turning ideas into reality through clean, efficient code and innovative solutions.</p>
-                <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">With a strong foundation in full-stack development and a knack for solving complex algorithmic challenges, I bring creativity and precision to every project. Let’s build something amazing together!</p>
-                <motion.div whileHover={{ scale: 1.05 }} className="inline-block px-6 py-2 bg-blue-500 text-white rounded-full">Download Resume</motion.div>
+                <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Hey! I'm VVRS Teja, a passionate{' '}
+                  <span className="font-semibold text-blue-600 dark:text-blue-300">MERN Stack Developer</span> and{' '}
+                  <span className="font-semibold text-blue-600 dark:text-blue-300">Competitive Programmer</span>. I thrive on turning ideas into reality through clean, efficient code and innovative solutions.
+                </p>
+                <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+                  With a strong foundation in full-stack development and a knack for solving complex algorithmic challenges, I bring creativity and precision to every project. Let’s build something amazing together!
+                </p>
+              
               </div>
-              <motion.div initial={{ scale: 0.8, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative">
-                <div className="w-64 h-64 mx-auto bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center">
-                  <motion.span animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="text-4xl font-bold text-white">VT</motion.span>
+
+              {/* Your Photo */}
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative"
+              >
+                <div className="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-blue-500 dark:border-blue-400 shadow-lg">
+                  <img
+                    src="/images/photo.jpg" // Update this path to your photo
+                    alt="VVRS Teja"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <motion.div className="absolute -top-4 -left-4 w-16 h-16 bg-blue-200 dark:bg-blue-800 rounded-full" animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }} transition={{ duration: 3, repeat: Infinity }} />
-                <motion.div className="absolute -bottom-4 -right-4 w-12 h-12 bg-blue-300 dark:bg-blue-700 rounded-full" animate={{ scale: [1, 1.3, 1], opacity: [0.6, 1, 0.6] }} transition={{ duration: 4, repeat: Infinity }} />
+                {/* Optional: Add decorative elements */}
+                <motion.div
+                  className="absolute -top-4 -left-4 w-16 h-16 bg-blue-200 dark:bg-blue-800 rounded-full"
+                  animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                />
+                <motion.div
+                  className="absolute -bottom-4 -right-4 w-12 h-12 bg-blue-300 dark:bg-blue-700 rounded-full"
+                  animate={{ scale: [1, 1.3, 1], opacity: [0.6, 1, 0.6] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                />
               </motion.div>
             </div>
           </motion.div>
@@ -202,24 +245,78 @@ function App() {
           </motion.div>
         </Section>
 
-        {/* Projects Section */}
+        {/* Projects Section with Slider */}
         <Section id="projects" title="Featured Projects">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
-              <motion.div key={project.title} whileHover={{ y: -5 }} className="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden">
-                <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech) => (
-                      <span key={tech} className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">{tech}</span>
-                    ))}
+          <div className="relative py-8 px-12">
+            {/* Navigation Buttons */}
+            <motion.button 
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => document.getElementById('projects-container')?.scrollBy({ left: -340, behavior: 'smooth' })}
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-blue-500/80 text-white p-3 rounded-full shadow-md hover:bg-blue-600 transition-all backdrop-blur-sm"
+              aria-label="Scroll left"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </motion.button>
+            
+            <motion.button 
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => document.getElementById('projects-container')?.scrollBy({ left: 340, behavior: 'smooth' })}
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-blue-500/80 text-white p-3 rounded-full shadow-md hover:bg-blue-600 transition-all backdrop-blur-sm"
+              aria-label="Scroll right"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </motion.button>
+
+            {/* Projects Container */}
+            <div 
+              id="projects-container"
+              className="flex overflow-x-scroll snap-x snap-mandatory scroll-smooth gap-8 hide-scrollbar"
+              style={{ 
+                WebkitOverflowScrolling: 'touch',
+                maxWidth: '100%',
+                scrollBehavior: 'smooth'
+              }}
+            >
+              {projects.map((project) => (
+                <motion.div 
+                  key={project.title} 
+                  whileHover={{ y: -5 }}
+                  className="flex-shrink-0 w-[320px] bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden snap-center shadow-lg"
+                >
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-200">{project.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">{project.description}</p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.technologies.map((tech) => (
+                        <span 
+                          key={tech} 
+                          className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-xs"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    <a 
+                      href={project.link} 
+                      className="text-blue-500 hover:text-blue-600 transition-colors text-sm font-medium"
+                    >
+                      View Project →
+                    </a>
                   </div>
-                  <a href={project.link} className="text-blue-500 hover:text-blue-600 transition-colors">View Project →</a>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </Section>
 
@@ -256,11 +353,10 @@ function App() {
       {/* Footer */}
       <footer className="bg-gray-50 dark:bg-gray-800 mt-16">
         <div className="max-w-6xl mx-auto px-4 py-8">
-          <p className="text-center text-gray-600 dark:text-gray-400">© {new Date().getFullYear()} VVRS TEJA. All rights reserved.</p>
+          <p className="text-center text-gray-600 dark:text-gray-400">MADE WITH ❤️ VVRS TEJA</p>
         </div>
       </footer>
     </div>
   );
 }
-
 export default App;

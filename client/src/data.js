@@ -15,34 +15,13 @@ export const projects = [
     },
     {
       title: "Animation UI",
-      description: "Analytics dashboard for social media management",
-      image: "",
-      technologies: ["TypeScript", "Next.js", "GraphQL"],
-      link: "#"
+      description: " Smooth animations and modern design ensure an engaging user experience. Fast, responsive, and visually dynamic—bringing ideas to life effortlessly!",
+      image: "./src/assets/kalki.png",
+      technologies: ["React", "Tailwind CSS", "Framer-Motion"],
+      link: "https://kalki-website.onrender.com/"
     }
   ];
-  
-  export const blogPosts = [
-    {
-      title: "Building Scalable Applications with Microservices",
-      excerpt: "Learn how to design and implement microservices architecture for better scalability",
-      date: "2024-03-01",
-      readTime: "5 min read"
-    },
-    {
-      title: "The Future of Web Development: What's Next?",
-      excerpt: "Exploring upcoming trends and technologies in web development",
-      date: "2024-02-25",
-      readTime: "4 min read"
-    },
-    {
-      title: "Optimizing React Performance",
-      excerpt: "Best practices and techniques for improving React application performance",
-      date: "2024-02-20",
-      readTime: "6 min read"
-    }
-  ];
-  
+
   export const experiences = [
     {
       company: "Tech Solutions Inc.",
