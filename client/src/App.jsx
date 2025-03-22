@@ -69,9 +69,9 @@ function App() {
 
   const navItems = ['about', 'skills', 'achievements', 'projects', 'contact'];
   const achievements = [
-    { platform: "LeetCode", achievement: "Solved 200+ problems", link: "https://leetcode.com/your-profile", rank: "Top 25% globally" },
-    { platform: "Codeforces", achievement: "Specialist Rating", link: "https://codeforces.com/profile/your-profile", rank: "1500+ rating" },
-    { platform: "HackerRank", achievement: "5-star in Problem Solving", link: "https://www.hackerrank.com/your-profile", rank: "Gold Badge" }
+    { platform: "LeetCode", achievement: "Solved 200+ problems",rank: "Top 25% globally" },
+    { platform: "Codeforces", achievement: "Newbie",  rank: "1000+ rating" },
+    { platform: "Codechef", achievement: "3-Star Rating", rank: "1600+ rating" }
   ];
 
   const getSkillIcon = (skill) => {
@@ -197,7 +197,6 @@ function App() {
                 </div>
                 <p className="text-gray-600 dark:text-gray-400 mb-2">{achievement.achievement}</p>
                 <p className="text-sm text-blue-500 dark:text-blue-300 mb-3">{achievement.rank}</p>
-                <a href={achievement.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">View Profile →</a>
               </motion.div>
             ))}
           </motion.div>
@@ -230,9 +229,9 @@ function App() {
             <div className="space-y-4">
               <p className="text-lg text-gray-600 dark:text-gray-400">I'm always open to new opportunities and interesting projects. Feel free to reach out!</p>
               <div className="flex space-x-4">
-                <motion.a href="https://github.com" target="_blank" rel="noopener noreferrer" whileHover={{ y: -2 }} className="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-500"><Github className="w-6 h-6" /></motion.a>
-                <motion.a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" whileHover={{ y: -2 }} className="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-500"><Linkedin className="w-6 h-6" /></motion.a>
-                <motion.a href="mailto:contact@example.com" whileHover={{ y: -2 }} className="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-500"><Mail className="w-6 h-6" /></motion.a>
+                <motion.a href="https://github.com/Teja-Vvrs" target="_blank" rel="noopener noreferrer" whileHover={{ y: -2 }} className="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-500"><Github className="w-6 h-6" /></motion.a>
+                <motion.a href="https://www.linkedin.com/in/veluvarthi-teja" target="_blank" rel="noopener noreferrer" whileHover={{ y: -2 }} className="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-500"><Linkedin className="w-6 h-6" /></motion.a>
+                <motion.a href="mailto:vvrsteja944@gmail.com" whileHover={{ y: -2 }} className="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-500"><Mail className="w-6 h-6" /></motion.a>
               </div>
             </div>
             <form className="space-y-4">
