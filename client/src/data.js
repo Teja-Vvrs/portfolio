@@ -2,21 +2,21 @@ export const projects = [
     {
       title: "Restaurant-Finder",
       description: "Restaurant Finder is an app that helps users discover nearby restaurants based on name, cuisine and location",
-      image: "./src/assets/restaurant.png",
+      image: "./public/restaurant.png",
       technologies: ["React", "Node.js", "MongoDB", "Express"],
       link: "https://restaurant-finder-indol.vercel.app/"
     },
     {
       title: "FarmDirect",
       description: "FarmDirect is an online platform connecting farmers directly with consumers for fresh, farm-to-table produce.",
-      image: "./src/assets/Farm_direct.jpg",
+      image: "./public/Farm_direct.jpg",
       technologies: ["React", "Node.js", "MongoDB", "Express"],
       link: "https://farmdirect-beta.vercel.app/login"
     },
     {
       title: "Animation UI",
       description: " Smooth animations and modern design ensure an engaging user experience. Fast, responsive, and visually dynamic—bringing ideas to life effortlessly!",
-      image: "./src/assets/kalki.png",
+      image: "./public/kalki.png",
       technologies: ["React", "Tailwind CSS", "Framer-Motion"],
       link: "https://kalki-website.onrender.com/"
     }
