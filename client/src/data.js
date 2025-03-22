@@ -65,9 +65,9 @@ export const projects = [
   ];
   
   export const skills = {
-    Frontend: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"],
-    Backend: ["Node.js", "Express", "MongoDB","REST APIs"],
-    Tools: ["Git", "VS Code", "Figma", "Postman"],
-    Languages: ["JavaScript", "Python", "C++", "Java"],
+    frontend: ['React', 'JavaScript', 'HTML', 'CSS'],
+    backend: ['Node.js', 'Express', 'MongoDB'],
+    tools: ['Git', 'Docker'],
+    languages: ['Python', 'Java', 'TypeScript']
   };
   
