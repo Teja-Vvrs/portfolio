@@ -20,29 +20,7 @@ export const projects = [
       technologies: ["React", "Tailwind CSS", "Framer-Motion"],
       link: "https://kalki-website.onrender.com/"
     }
-  ];
-
-  export const experiences = [
-    {
-      company: "Tech Solutions Inc.",
-      position: "Senior Full Stack Developer",
-      period: "2022 - Present",
-      description: "Leading development of enterprise web applications, mentoring junior developers, and implementing best practices."
-    },
-    {
-      company: "Digital Innovations",
-      position: "Full Stack Developer",
-      period: "2020 - 2022",
-      description: "Developed and maintained multiple client projects using React, Node.js, and AWS."
-    },
-    {
-      company: "StartUp Labs",
-      position: "Frontend Developer",
-      period: "2018 - 2020",
-      description: "Built responsive web applications and implemented modern UI/UX designs."
-    }
-  ];
-  
+  ];  
   export const skills = {
     frontend: ['React', 'JavaScript', 'HTML', 'CSS'],
     backend: ['Node.js', 'Express', 'MongoDB'],
