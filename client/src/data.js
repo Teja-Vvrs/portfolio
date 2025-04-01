@@ -22,9 +22,9 @@ export const projects = [
     }
   ];  
   export const skills = {
-    frontend: ['React', 'JavaScript', 'HTML', 'CSS'],
+    frontend: ['React','NextJs', 'JavaScript', 'HTML', 'CSS'],
     backend: ['Node.js', 'Express', 'MongoDB'],
     tools: ['Git', 'Docker'],
-    languages: ['Python', 'Java', 'TypeScript']
+    languages: ['C','C++','Python', 'Java', 'TypeScript']
   };
   
