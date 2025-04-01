@@ -184,7 +184,7 @@ function App() {
               >
                 <div className="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-blue-500 dark:border-blue-400 shadow-lg">
                   <img
-                    src="/src/assets/tej.jpg" // Update this path to your photo
+                    src="src/assets/tej.jpg" // Update this path to your photo
                     alt="VVRS Teja"
                     className="w-full h-full object-cover scale-125"
                   />
