@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Menu, X, Award } from 'lucide-react';
 import { ThemeToggle } from './components/ThemeToggle';
 import { Section } from './components/Section';
-import { projects, skills } from './data';
+import { projects } from './data';
 import RotatingText from './RotatingText';
 import { 
   FaReact, FaNodeJs, FaJsSquare, FaHtml5, FaCss3Alt, FaPython, FaJava, 
@@ -12,6 +12,7 @@ import {
 import { SiMongodb, SiExpress, SiTypescript, SiRedux } from 'react-icons/si';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Skills from './components/Skills'
 
 function App() {
   const [isDark, setIsDark] = useState(() => {
@@ -89,26 +90,26 @@ function App() {
     { platform: "Codechef", achievement: "3-Star Rating", rank: "1600+ rating" }
   ];
 
-  const getSkillIcon = (skill) => {
-    const iconClass = "w-6 h-6 text-blue-500 dark:text-blue-300";
-    switch (skill.toLowerCase()) {
-      case 'react': return <FaReact className={iconClass} />;
-      case 'nodejs': case 'node.js': return <FaNodeJs className={iconClass} />;
-      case 'javascript': return <FaJsSquare className={iconClass} />;
-      case 'html': return <FaHtml5 className={iconClass} />;
-      case 'css': return <FaCss3Alt className={iconClass} />;
-      case 'python': return <FaPython className={iconClass} />;
-      case 'java': return <FaJava className={iconClass} />;
-      case 'git': return <FaGitAlt className={iconClass} />;
-      case 'mongodb': return <SiMongodb className={iconClass} />;
-      case 'express': return <SiExpress className={iconClass} />;
-      case 'typescript': return <SiTypescript className={iconClass} />;
-      case 'redux': return <SiRedux className={iconClass} />;
-      case 'sql': return <FaDatabase className={iconClass} />;
-      case 'docker': return <FaDocker className={iconClass} />;
-      default: return <span className="text-blue-500 dark:text-blue-300 text-lg">{skill[0]}</span>;
-    }
-  };
+  // const getSkillIcon = (skill) => {
+  //   const iconClass = "w-6 h-6 text-blue-500 dark:text-blue-300";
+  //   switch (skill.toLowerCase()) {
+  //     case 'react': return <FaReact className={iconClass} />;
+  //     case 'nodejs': case 'node.js': return <FaNodeJs className={iconClass} />;
+  //     case 'javascript': return <FaJsSquare className={iconClass} />;
+  //     case 'html': return <FaHtml5 className={iconClass} />;
+  //     case 'css': return <FaCss3Alt className={iconClass} />;
+  //     case 'python': return <FaPython className={iconClass} />;
+  //     case 'java': return <FaJava className={iconClass} />;
+  //     case 'git': return <FaGitAlt className={iconClass} />;
+  //     case 'mongodb': return <SiMongodb className={iconClass} />;
+  //     case 'express': return <SiExpress className={iconClass} />;
+  //     case 'typescript': return <SiTypescript className={iconClass} />;
+  //     case 'redux': return <SiRedux className={iconClass} />;
+  //     case 'sql': return <FaDatabase className={iconClass} />;
+  //     case 'docker': return <FaDocker className={iconClass} />;
+  //     default: return <span className="text-blue-500 dark:text-blue-300 text-lg">{skill[0]}</span>;
+  //   }
+  // };
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-200">
@@ -170,7 +171,7 @@ function App() {
                   <span className="font-semibold text-blue-600 dark:text-blue-300">Competitive Programmer</span>. I thrive on turning ideas into reality through clean, efficient code and innovative solutions.
                 </p>
                 <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-                  With a strong foundation in full-stack development and a knack for solving complex algorithmic challenges, I bring creativity and precision to every project. Let’s build something amazing together!
+                  With a strong foundation in full-stack development and a knack for solving complex algorithmic challenges, I bring creativity and precision to every project. Let's build something amazing together!
                 </p>
               
               </div>
@@ -206,27 +207,8 @@ function App() {
         </Section>
 
         {/* Skills Section */}
-        <Section id="skills" title="Skills">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {Object.entries(skills).map(([category, items]) => (
-              <motion.div key={category} initial="hidden" whileInView="visible" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-                <h3 className="text-xl font-semibold mb-4 text-blue-500 dark:text-blue-400 capitalize">{category}</h3>
-                <div className="space-y-4">
-                  {items.map((skill, index) => (
-                    <motion.div key={skill} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.1 }} className="flex items-center space-x-4">
-                      <div className="w-10 h-10 flex items-center justify-center bg-blue-100 dark:bg-blue-900 rounded-full">{getSkillIcon(skill)}</div>
-                      <div className="flex-1">
-                        <p className="text-gray-800 dark:text-gray-200 font-medium">{skill}</p>
-                        <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                          <motion.div initial={{ width: 0 }} whileInView={{ width: `${90 - index * 5}%` }} transition={{ duration: 1.5, ease: "easeOut" }} className="h-full bg-gradient-to-r from-blue-400 to-blue-600 rounded-full" />
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        <Section id="skills" >
+          <Skills />
         </Section>
 
         {/* Achievements Section */}
