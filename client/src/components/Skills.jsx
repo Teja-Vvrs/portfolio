@@ -13,14 +13,14 @@ const Skills = () => {
   const skillsData = [
     { name: 'HTML', icon: <FaHtml5 size={40} />, level: 'Advanced' },
     { name: 'CSS & Tailwind', icon: <SiTailwindcss size={40} />, level: 'Advanced' },
-    { name: 'JavaScript', icon: <SiJavascript size={40} />, level: 'Advanced' },
-    { name: 'React.js', icon: <FaReact size={40} />, level: 'Advanced' },
+    { name: 'JavaScript', icon: <SiJavascript size={40} />, level: 'Intermediate' },
+    { name: 'React.js', icon: <FaReact size={40} />, level: 'Intermediate' },
     { name: 'Node.js', icon: <FaNodeJs size={40} />, level: 'Intermediate' },
     { name: 'Express.js', icon: <SiExpress size={40} />, level: 'Intermediate' },
     { name: 'MongoDB', icon: <SiMongodb size={40} />, level: 'Intermediate' },
     { name: 'MySQL', icon: <SiMysql size={40} />, level: 'Intermediate' },
     { name: 'C++', icon: <SiCplusplus size={40} />, level: 'Advanced' },
-    { name: 'Python', icon: <FaPython size={40} />, level: 'Advanced' },
+    { name: 'Python', icon: <FaPython size={40} />, level: 'Intermediate' },
     { name: 'Data Structures & Algorithms', icon: <FaBrain size={40} />, level: 'Intermediate-Advanced' },
     { name: 'Git & GitHub', icon: <FaGitAlt size={40} />, level: 'Intermediate' },
   ];

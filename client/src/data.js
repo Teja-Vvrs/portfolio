@@ -19,6 +19,13 @@ export const projects = [
       image: "/kalki.png",
       technologies: ["React", "Tailwind CSS", "Framer-Motion"],
       link: "https://kalki-website.onrender.com/"
+    },
+    {
+      title: "FUnderra",
+      description: " Developed a MERN stack crowdfunding web application enabling users to create and manage fundraising campaigns.",
+      image: "/Funderra.png",
+      technologies: ["React", "Node.js", "MongoDB", "Express"],
+      link: "https://fundraiseer-ee3k.vercel.app/"
     }
   ];  
   export const skills = {
